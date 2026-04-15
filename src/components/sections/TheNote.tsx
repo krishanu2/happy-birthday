@@ -79,11 +79,13 @@ Thank you for being my person. Thank you for making me feel like I belong somewh
 
 Khush raho, Didi. Bahut zyada.
 Aur jab bhi mushkil lage — bas ek baar peeche ghoom ke dekh.
-Main wahan hounga. Hamesha.
-
-"How long will I stand behind you? As long as stars are above you. And longer if I can." 🌙🌙
-
-— tera chotu, Krishanu 🤍`,
+Main wahan hounga. Hamesha.`,
+    isFinal: false,
+  },
+  {
+    title: '',
+    body: `"How long will I stand behind you? As long as stars are above you. And longer if I can." 🌙🌙`,
+    signature: '— tera chotu, Krishanu 🤍',
     isFinal: true,
   },
 ];
@@ -126,8 +128,9 @@ function ConstellationBg() {
 }
 
 // ── Single page ──────────────────────────────────────────────────────────────
+type PageData = typeof PAGES[0] & { signature?: string };
 interface PageProps {
-  page: typeof PAGES[0];
+  page: PageData;
   idx: number;
   total: number;
   onNext: () => void;
@@ -135,7 +138,7 @@ interface PageProps {
   direction: number;
 }
 
-function Page({ page, idx, total, onNext, onPrev, direction }: PageProps) {
+function Page({ page, idx, total, onNext, onPrev, direction }: PageProps & { page: PageData }) {
   const isLast = idx === total - 1;
 
   return (
@@ -222,15 +225,52 @@ function Page({ page, idx, total, onNext, onPrev, direction }: PageProps) {
           <p
             className="whitespace-pre-line"
             style={{
-              fontFamily: 'var(--font-caveat)',
-              fontSize: 18,
-              color: '#3a2800',
-              lineHeight: '2.1rem',
-              minHeight: page.isFinal ? 240 : 180,
+              fontFamily: isLast && page.signature ? 'var(--font-cormorant)' : 'var(--font-caveat)',
+              fontSize: isLast && page.signature ? 22 : 18,
+              fontStyle: isLast && page.signature ? 'italic' : 'normal',
+              color: isLast && page.signature ? '#5a3008' : '#3a2800',
+              lineHeight: isLast && page.signature ? '2.4rem' : '2.1rem',
+              minHeight: page.isFinal ? 140 : 180,
             }}
           >
             {page.body}
           </p>
+
+          {/* Signature on last page */}
+          {isLast && page.signature && (
+            <motion.div
+              className="mt-8 mb-2"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+            >
+              <p style={{
+                fontFamily: 'var(--font-caveat)',
+                fontSize: 15,
+                color: 'rgba(122,74,16,0.7)',
+                marginBottom: 4,
+              }}>
+                — tera chotu,
+              </p>
+              <p style={{
+                fontFamily: 'var(--font-caveat)',
+                fontSize: 48,
+                color: '#5a3008',
+                lineHeight: 1.1,
+                letterSpacing: '-0.01em',
+                transform: 'rotate(-2deg)',
+                display: 'inline-block',
+              }}>
+                Krishanu
+              </p>
+              <span style={{
+                fontFamily: 'var(--font-caveat)',
+                fontSize: 28,
+                color: '#c47a8a',
+                marginLeft: 6,
+              }}>🤍</span>
+            </motion.div>
+          )}
 
           {/* Heart on last page */}
           {isLast && (
@@ -376,9 +416,49 @@ export default function TheNote({ onComplete: _onComplete }: TheNoteProps) {
                 textShadow: '0 0 30px rgba(240,192,96,0.5)' }}>
                 Happy Birthday, Riya.
               </p>
+              {/* Availability notice */}
+              <motion.div
+                className="mt-2 px-5 py-4 text-left"
+                style={{
+                  border: '1px solid rgba(240,192,96,0.2)',
+                  borderRadius: 8,
+                  background: 'rgba(255,253,232,0.04)',
+                  maxWidth: 320,
+                  width: '100%',
+                }}
+                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
+              >
+                <p style={{ fontFamily: 'var(--font-syne-mono)', fontSize: 9, color: 'rgba(240,192,96,0.4)', letterSpacing: '0.18em', marginBottom: 10, textTransform: 'uppercase' }}>
+                  official notice
+                </p>
+                <p style={{ fontFamily: 'var(--font-caveat)', fontSize: 19, color: 'rgba(253,244,227,0.9)', lineHeight: 1.5, marginBottom: 6 }}>
+                  Mr. Krishanu Mahapatra<br/>
+                  <span style={{ fontSize: 14, color: 'rgba(240,192,96,0.6)' }}>Secretary, DAA (the important one)</span>
+                </p>
+                <div style={{ borderTop: '1px solid rgba(240,192,96,0.12)', paddingTop: 8, marginBottom: 8 }}>
+                  <p style={{ fontFamily: 'var(--font-caveat)', fontSize: 17, color: 'rgba(253,244,227,0.75)', lineHeight: 1.7 }}>
+                    Sat &amp; Sun → <span style={{ color: '#7db894' }}>free</span> (coincidence? probably not.)<br/>
+                    Weekdays → <span style={{ color: 'rgba(228,115,58,0.8)' }}>busy being important</span>
+                  </p>
+                </div>
+                <p style={{ fontFamily: 'var(--font-caveat)', fontSize: 15, color: 'rgba(253,244,227,0.5)', marginBottom: 4 }}>
+                  to schedule a didi hangout:
+                </p>
+                <motion.p
+                  style={{ fontFamily: 'var(--font-caveat)', fontSize: 24, color: '#f0c060', letterSpacing: '0.06em' }}
+                  animate={{ opacity: [0.75, 1, 0.75] }}
+                  transition={{ repeat: Infinity, duration: 2.2 }}
+                >
+                  9007488910
+                </motion.p>
+                <p style={{ fontFamily: 'var(--font-syne-mono)', fontSize: 9, color: 'rgba(196,122,138,0.45)', letterSpacing: '0.1em', marginTop: 8 }}>
+                  * slots limited. (there is one slot. it&apos;s yours.)
+                </p>
+              </motion.div>
+
               {/* Replay — teasing */}
-              <motion.div className="flex flex-col items-center gap-2 mt-2"
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
+              <motion.div className="flex flex-col items-center gap-2 mt-4"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6 }}>
                 <p style={{ fontFamily: 'var(--font-syne-mono)', fontSize: 11,
                   color: 'rgba(196,122,138,0.55)', letterSpacing: '0.1em' }}>
                   i know you want to read it again.
