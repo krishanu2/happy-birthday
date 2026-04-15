@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Riya's Universe 🌌
 
-## Getting Started
+A cinematic birthday web experience built for Riya by Krishanu.
 
-First, run the development server:
+## What is this
+
+A 7-scene interactive journey through space — complete with a roasting pig, a planet walk, a hand-drawn sketch, and a letter. Built with love and an unreasonable number of late nights.
+
+## Scenes
+
+1. **Lock Screen** — psst. you weren't supposed to find this yet.
+2. **Universe Birth** — the cosmos assembles itself
+3. **Pig Roast** — a pig in Gandhi-ji glasses has opinions
+4. **Planet Journey** — walk through memory meadows and nebulae
+5. **Krishanu's Door** — a live-action investigation into whether he knew the date
+6. **Sketch Reveal** — two days. four drafts. three Google searches.
+7. **The Note** — the real one
+
+## Stack
+
+- [Next.js](https://nextjs.org/) 16 (App Router)
+- [Framer Motion](https://www.framer.com/motion/) — animations
+- [Howler.js](https://howlerjs.com/) — audio
+- [Tailwind CSS](https://tailwindcss.com/) v4
+- Canvas API — starfield & particle systems
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Deployed on [Vercel](https://vercel.com). Pushes to `main` auto-deploy.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Happy Birthday, Riya. 🤍*
