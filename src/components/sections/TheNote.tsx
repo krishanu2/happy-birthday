@@ -310,9 +310,14 @@ function Page({ page, idx, total, onNext, onPrev, direction }: PageProps & { pag
             </button>
 
             {isLast ? (
-              <span style={{ fontFamily: 'var(--font-caveat)', fontSize: 16, color: 'rgba(196,122,138,0.6)' }}>
+              <motion.button
+                onClick={onNext}
+                style={{ fontFamily: 'var(--font-caveat)', fontSize: 16, color: 'rgba(196,122,138,0.75)', cursor: 'pointer', padding: '4px 8px' }}
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              >
                 fin. ♥
-              </span>
+              </motion.button>
             ) : (
               <button
                 onClick={onNext}

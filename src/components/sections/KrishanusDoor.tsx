@@ -27,10 +27,10 @@ const SCRIPT: Line[] = [
   // ── Door opens ──
   { speaker: 'krishanu',  text: '...who is it?',                                                   pigExpr: 'idle',    kExpr: 'peek',     delay: 6000,  duration: 2600 },
   { speaker: 'pig',       text: 'Quick. What is today\'s date.',                                   pigExpr: 'serious', kExpr: 'peek',     delay: 8600,  duration: 3000 },
-  { speaker: 'krishanu',  text: 'Uh... the... fifteenth?',                                        pigExpr: 'idle',    kExpr: 'sheepish', delay: 11600, duration: 2800 },
+  { speaker: 'krishanu',  text: 'Uh... the... sixteenth?',                                        pigExpr: 'idle',    kExpr: 'sheepish', delay: 11600, duration: 2800 },
   { speaker: 'pig',       text: 'Of.',                                                             pigExpr: 'serious', kExpr: 'sheepish', delay: 14400, duration: 2200 },
   { speaker: 'krishanu',  text: '...April.',                                                       pigExpr: 'idle',    kExpr: 'sheepish', delay: 16600, duration: 2400 },
-  { speaker: 'pig',       text: 'And April 15th is.',                                             pigExpr: 'serious', kExpr: 'sheepish', delay: 19000, duration: 2800 },
+  { speaker: 'pig',       text: 'And April 16th is.',                                             pigExpr: 'serious', kExpr: 'sheepish', delay: 19000, duration: 2800 },
   // ── The pause ──
   { speaker: 'narrator',  text: '*a very long pause*',                                             pigExpr: 'idle',    kExpr: 'sheepish', delay: 21800, duration: 3200 },
   { speaker: 'krishanu',  text: '...Tax deadline?',                                               pigExpr: 'idle',    kExpr: 'sheepish', delay: 25000, duration: 2800 },

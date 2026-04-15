@@ -162,7 +162,7 @@ export default function LockScreen({ onUnlock }: LockScreenProps) {
       <motion.p className="absolute bottom-7"
         style={{ color: 'rgba(240,192,96,0.18)', fontFamily: 'var(--font-dm-sans)', fontSize: 10, letterSpacing: '0.35em', textTransform: 'uppercase' }}
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 4 }}>
-        April 15 · for Riya
+        April 16 · for Riya
       </motion.p>
     </div>
   );
